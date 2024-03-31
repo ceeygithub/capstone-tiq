@@ -1,0 +1,95 @@
+.faq {
+    padding: 0 3.5rem;
+}
+
+/* .faqContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin: 20px 0;
+    
+} */
+/* Faq.module.css */
+
+.faqContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin: 20px 0;
+    transition: height 0.3s ease;
+    /* Add transition for smoother animation */
+    height: auto;
+    /* Set initial height to auto */
+}
+
+.faqtLeft {
+    max-width: 100%;
+        height: 100%;
+        text-align: start;
+       
+}
+
+.faqHeader {
+    font-size: 3.5rem;
+    white-space: nowrap;
+}
+
+.faqParagraph {
+    white-space: nowrap;
+    font-size: 1.5rem;
+}
+
+
+.faqRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        width: 600px;
+     
+}
+
+.joinBtn {
+    margin-top: 20px;
+    width: 150px;
+    padding: 10px 30px;
+    font-size: 1em;
+    background-color: var(--pryColor);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.joinBtn:hover {
+    background: rgb(255, 39, 1);
+}
+
+@media only screen and (max-width: 768px) {
+    .faqContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .faqRight {
+        text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+  
+    }
+
+    .faqLeft img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .faqLeft {
+        text-align: center;
+        /* max-width: none; */
+        width: 100%;
+    }
+}
