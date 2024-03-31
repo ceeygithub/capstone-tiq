@@ -1,16 +1,41 @@
-import React from 'react'
-import Navigation from '../components/Navigation'
-import Faq from '../components/Faq'
+// import React from 'react'
+// import Navigation from '../components/Navigation'
+// import Faq from '../components/Faq'
+// import ContactForm from '../components/ContactForm'
 
-import Header from '../components/Header'
+// import Header from '../components/Header'
+// const Home = () => {
+//   return (
+//     <>
+//     <Navigation/>
+//     <Header/>
+//     <Faq/>
+//     <ContactForm/>
+//     </>
+//   )
+// }
+
+// export default Home
+
+import React from 'react';
+import Navigation from '../components/Navigation';
+import Faq from '../components/Faq';
+import ContactForm from '../components/ContactForm';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 const Home = () => {
   return (
     <>
-    <Navigation/>
-    <Header/>
-    <Faq/>
+      <Navigation />
+      <Header id="home" />
+      {/* <AboutUs id="about" /> */}
+      <Faq id="faq" />
+      <ContactForm id="contact" />
+      <Footer/>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
+

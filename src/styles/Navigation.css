@@ -77,6 +77,41 @@
     display: none;
 }
 
+
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 43%;
+    background-color: #ffffff;
+     padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1;
+    /* Ensure dropdown is above other elements */
+}
+
+.dropdown.show {
+    display: block;
+    /* Show the dropdown when 'showDropdown' state is true */
+}
+
+/* Add any additional styling for the dropdown items as needed */
+.dropdown li {
+    list-style: none;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: #333;
+    /* Color of dropdown item text */
+}
+
+.dropdown li a:hover {
+    color: #000;
+    /* Color of dropdown item text on hover */
+}
+
 @media screen and (max-width: 768px) {
     .nav {
         padding: 1rem;

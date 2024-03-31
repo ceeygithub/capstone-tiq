@@ -7,7 +7,7 @@ const Header = () => {
         const navigate = useNavigate();
 
   const handleJoin = () => {
-    navigate('/signup');
+    navigate('/signin');
   };
   return (
     <section className='about'>
