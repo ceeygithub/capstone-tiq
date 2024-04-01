@@ -1,0 +1,87 @@
+.overviewPageContainer {
+    height: 100vh;
+    overflow: auto;
+}
+
+.overviewPageInnerContainer {
+    display: flex;
+    min-height: 100%;
+}
+
+.overviewPageInnerContainer .overviewFormContainer {
+    flex-grow: 2;
+    background-color: white;
+    min-height: 100%;
+    padding: 5%;
+    background: url('../asset/Contact us.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.overviewFormInnerContainer {
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.overviewLogo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.overviewheader {
+    text-align: left;
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+.overviewFormContainer .overviewFormInnerContainer .overviewButton {
+    margin-top: 30px;
+    display: block;
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--pryColor);
+    border: 0px;
+    outline: 0px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.overviewFormContainer .overviewFormInnerContainer .overviewButton:active {
+    background-color: #4520ff;
+}
+
+.overviewFormContainer .overviewFormInnerContainer .overviewButton:hover {
+    background-color: orangered;
+}
+.overviewButton:hover .icon {
+    transform: scale(1.2);
+}
+
+@media only screen and (max-width: 1200px) {
+    .overviewPageInnerContainer .ImageContianer {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .overviewPageInnerContainer .ImageContianer {
+        display: none;
+    }
+
+    .overviewFormContainer {
+        justify-content: center;
+    }
+}

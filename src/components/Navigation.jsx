@@ -30,7 +30,9 @@ const Navigation = () => {
     const handleJoin = () => {
     navigate('/signin');
   };
-
+const HandleAbout=()=>{
+  navigate('/about');
+}
   return (
     <nav className="nav">
       <div className="nav-title">
@@ -42,8 +44,9 @@ const Navigation = () => {
       <ul className={`nav-list ${showNav ? 'show' : ''}`}>
         <li><Link to="#" className="navLink active" onClick={() => smoothScrollTo('home')}>Home</Link></li>
         {/* <li><Link to="#" className='navLink' onClick={() => smoothScrollTo('about')}>About us</Link></li> */}
+            <li><Link to="#" className='navLink' onClick={HandleAbout}>About us</Link></li>
         <li>
-          <span className='navLink' onClick={toggleDropdown}>Assessment <RiArrowDownSLine /></span>
+          <span className='navLink' onClick={toggleDropdown}>Assessments <RiArrowDownSLine /></span>
           <ul className={`dropdown ${showDropdown ? 'show' : ''}`}>
             <li><Link to="#" onClick={() =>{} }>Assessment 1</Link></li>
             <li><Link to="#" onClick={() =>{} }>Assessment 2</Link></li>

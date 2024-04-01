@@ -15,9 +15,9 @@ const SignIn = () => {
     e.preventDefault();
     // You can perform validation here before navigating
     if (email === 'admin@gmail.com' && password === 'admin') {
-      navigate('/admin');
+      navigate('/adminDashboard');
     } else {
-      navigate('/formPage');
+      navigate('/overview');
     }
   };
 

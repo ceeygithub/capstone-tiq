@@ -1,0 +1,51 @@
+
+form {  
+    margin: auto;
+ 
+}
+.answer{
+    border: 1px solid grey;
+    width: 50px;
+    display: inline;
+    margin: 10px 5px;
+    padding: 10px 30px;
+}
+.question{
+    display: block;
+    margin-bottom: 20px;
+}
+fieldset {
+    border: 0;
+    padding: 10px 0;
+    margin: 0;
+}
+
+fieldset input {
+    min-height: unset;
+    width: 16px;
+    height: 16px;
+        margin-top: 8px;
+     
+}
+
+fieldset label {
+    margin: 4px 0;
+}
+
+.FormBtn {
+width: 100px;
+    height: 42px;
+    background: var(--pryColor);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    transition: color var(--transition);
+    display: block;
+        margin: 20px auto 0 auto;
+}
+.FormBtn:hover{
+    background: rgb(255, 39, 1);
+}
+ .icon:hover{
+    transform: scale(1.2);
+}

@@ -1,5 +1,4 @@
 
-
 .LoginPageContainer {
     height: 100vh;
     overflow: auto;
@@ -8,8 +7,6 @@
 .LoginPageInnerContainer {
     display: flex;
     min-height: 100%;
-
-
 }
 
 .LoginPageInnerContainer .ImageContianer {
@@ -38,18 +35,6 @@
     align-items: center;
 }
 
-.LoginPageInnerContainer .LoginFormContainer .LogoContainer .logo {
-    height: 60px;
-    margin-bottom: 30px;
-}
-
-.LoginPageInnerContainer .LoginFormContainer .header {
-    font-size: 32px;
-    font-weight: 500;
-    text-align: center;
-}
-
-
 .LoginPageInnerContainer .LoginFormContainer .inputContainer {
     color: #3f3f45;
     margin: 20px 0px;
@@ -62,12 +47,6 @@
     align-items: center;
     margin-right: 7px;
     margin-bottom: 10px;
-}
-
-.LoginPageInnerContainer .LoginFormContainer .inputContainer .label .labelIcon {
-    width: 20px;
-    margin-right: 10px;
-    display: block;
 }
 
 .LoginPageInnerContainer .LoginFormContainer .inputContainer .input {
@@ -117,7 +96,12 @@
     padding: 0px 5px;
     color: #9aa4ad;
 }
+.SignInLink {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: orangered;
 
+}
 .formLogo{
     width: 100px;
   margin-bottom: 20px;
@@ -132,7 +116,7 @@ text-align: left;
 .inputIcon .icon {
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 30px;
     transform: translateY(-50%);
 }
 .LoginFormContainer .LoginFormInnerContainer .LoginButton {
@@ -190,27 +174,5 @@ text-align: left;
     background: #4520ff;
 }
 
-b:hover {
-    color: var(--pryColor);
-}
 
-.SignInLink {
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: orangered;
 
-}
-
-/* .LoginLogo {
-    display: flex;
-    align-items: center;
-    
-}
-
-.logoImg {
-    width: 80px;
-}
-
-.error-message {
-    color: rgba(255, 0, 0, 0.721);
-} */

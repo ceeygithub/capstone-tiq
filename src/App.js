@@ -6,7 +6,8 @@ import Home from './pages/Home';
 import FormPage from "./pages/FormPage";
 import NotFound from './pages/NotFound';
 import AdminDashboard from "./pages/AdminDashboard";
-
+import Overview from "./pages/Overview";
+import Response from "./pages/Response";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/formPage" element={<FormPage />} />
+        <Route path="/overview" element={<Overview />} />
+        <Route path="/response" element={<Response />} />
         <Route path="/adminDashboard" element={<AdminDashboard />} />
 
         <Route path="*" element={<NotFound />} />
