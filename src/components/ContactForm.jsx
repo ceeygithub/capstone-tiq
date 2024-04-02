@@ -1,12 +1,12 @@
 import React from 'react';
 import contactFormcss from '../styles/ContactForm.module.css';
-// import Logo from '../asset/TECHiQ (3).png';
+import Logo from '../asset/TECHiQ (3).png';
 
 const ContactForm = ({ id }) => {
   return (
     <div className={contactFormcss['form-main']} id={id}>
       <div className={contactFormcss['main-wrapper']}>
-         {/* <img src={Logo} alt="Logo" className="logoImg" /> */}
+         <img src={Logo} alt="Logo" className="logoImg" />
         <h2 className={contactFormcss['form-head']}>Contact Us </h2>
         <p className={contactFormcss['form-para']}>Enter your complain here and we will do our best to respond as soon as possible.!!</p>
         <form className={contactFormcss['form-wrapper']}>

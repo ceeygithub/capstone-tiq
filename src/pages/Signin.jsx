@@ -54,7 +54,7 @@ const SignIn = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
-                  <CiMail className="icon" alt="Email Icon" />
+                  <CiMail className="icons" alt="Email Icon" />
                 </div>
               </div>
               <div className="inputContainer">
@@ -73,9 +73,9 @@ const SignIn = () => {
                   />
                   {showPassword ? (
                   
-                     <FaRegEye className="icon" alt="Show Password Icon" onClick={togglePasswordVisibility} />
+                     <FaRegEye className="icons" alt="Show Password Icon" onClick={togglePasswordVisibility} />
                   ) : (
-                   <FaRegEyeSlash className="icon" alt="Hide Password Icon" onClick={togglePasswordVisibility} />
+                   <FaRegEyeSlash className="icons" alt="Hide Password Icon" onClick={togglePasswordVisibility} />
                   )}
                 </div>
               </div>
@@ -89,7 +89,7 @@ const SignIn = () => {
                 </Link>
               </div>
               <button type="submit" className="LoginButton">
-                SignIn
+                Sign In
               </button>
             </form>
           </div>

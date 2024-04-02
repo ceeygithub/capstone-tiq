@@ -5,7 +5,7 @@ import '../styles/Accordion.css';
 const Accordion = () => {
   return (
     <div className="accordion">
-    <h1>Frequently Asked Questions</h1>
+    <h1 style={{textAlign:'left'}}>Frequently Asked Questions</h1>
     <div className="accordion-item">
         <input type="checkbox" id="accordion1"/>
         <label htmlFor="accordion1" className="accordion-item-title"><span className="icon"></span>What exactly is a psychometric assessment?</label>

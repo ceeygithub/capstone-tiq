@@ -1,26 +1,8 @@
-// import React from 'react'
-// import Navigation from '../components/Navigation'
-// import Faq from '../components/Faq'
-// import ContactForm from '../components/ContactForm'
-
-// import Header from '../components/Header'
-// const Home = () => {
-//   return (
-//     <>
-//     <Navigation/>
-//     <Header/>
-//     <Faq/>
-//     <ContactForm/>
-//     </>
-//   )
-// }
-
-// export default Home
 
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Faq from '../components/Faq';
-import ContactForm from '../components/ContactForm';
+// import ContactForm from '../components/ContactForm';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -31,7 +13,7 @@ const Home = () => {
       <Header id="home" />
       {/* <AboutUs id="about" /> */}
       <Faq id="faq" />
-      <ContactForm id="contact" />
+      {/* <ContactForm id="contact" /> */}
       <Footer/>
     </>
   );

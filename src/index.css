@@ -78,7 +78,7 @@ html {
   scroll-behavior: smooth;
   /* Makes normal scrolling smooth */
   background: #ffffff;
-
+font-family: "Nunito Sans", sans-serif;
 }
 :root {
   --bgColor: #E0E7FA;

@@ -47,7 +47,7 @@ const StepProgressBar = ({ currentStep }) => {
             <div style={{width:'50px'}}>
               <div style={{ width: 30, height: 30, borderRadius: '50%', backgroundColor: accomplished ? '#083A55' : '#4A4A4A', display: 'flex', justifyContent: 'center', alignItems: 'center', color: accomplished ? 'white' : '#222222' }}>3</div>
               <p style={{  position:'absolute',
-                left:'-45%',top:'99%' , whiteSpace: 'nowrap'}}>Aptitude Test</p>
+                left:'-45%',top:'99%' , whiteSpace: 'nowrap'}}> Qualitative Inquiry</p>
             </div>
           )}
         </Step>
