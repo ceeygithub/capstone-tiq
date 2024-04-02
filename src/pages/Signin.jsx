@@ -63,7 +63,7 @@ const SignIn = () => {
                 </label>
                 <div className="inputIcon">
                   <input
-                    type={showPassword ? "text" : "password"} // Toggle input type based on showPassword state
+                    type={showPassword ? "text" : "password"} 
                     className="input"
                     id="password"
                     placeholder="Enter your Password"
