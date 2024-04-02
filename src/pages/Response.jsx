@@ -20,7 +20,7 @@ const Response = () => {
        <p style={{textAlign:'center'}}>Congratulations on completing the psychometric test
         <br />We are thrilled to be part of your journey <br />towards self-awareness and success.
        </p>
-<button className='overviewButton' onClick={HandleBack}>Back</button>
+<button className='overviewButton' onClick={HandleBack}>Go Back</button>
             </header>
            
           </div>
