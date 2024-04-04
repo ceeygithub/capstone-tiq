@@ -1,14 +1,22 @@
 
 form {  
     margin: auto;
- 
+ position: relative;
+}
+.answerContainer{
+    display: flex;
+    flex-direction: column;
 }
 .answer{
     border: 1px solid grey;
-    width: 50px;
+    width: 100%;
     display: inline;
     margin: 10px 5px;
-    padding: 10px 30px;
+    padding: 10px ;
+}
+.textArea{
+    display: block;
+    width: 100%;
 }
 .question{
     display: block;
@@ -30,6 +38,7 @@ fieldset input {
 
 fieldset label {
     margin: 4px 0;
+    display: block;
 }
 
 .FormBtn {
@@ -48,4 +57,17 @@ width: 100px;
 }
  .icon:hover{
     transform: scale(1.2);
+}
+.timer{
+    display: flex;
+position: absolute;
+top: -2.1%;
+left: 105%;
+z-index: 99;
+width: 100px;
+
+}
+.timerIcon{
+    font-size: 15px;
+
 }
