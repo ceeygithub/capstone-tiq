@@ -66,77 +66,77 @@ const AdminDashboard = () => {
 
   const renderContent = () => {
     switch (selectedMenu) {
-      case 'users':
+      case 'dashboard':
         return (
-        <main className="py-6 bg-surface-secondary">
+        <main className="py-6 bg-surface-secondary" style={{marginTop:'1.5rem'}}>
           <div className="container-fluid">
 
             <div className="row g-6 mb-6">
-              <div className="col-xl-3 col-sm-6 col-12">
-                <div className="card shadow border-0">
-                  <div className="card-body">
+              <div className="col-xl-3 col-sm-6 col-12" >
+                <div className="card shadow border-0"  style={{background:'#083A55'}}>
+                  <div className="card-body"  style={{textAlign:'center',height:'200px'}}>
                     <div className="row">
                       <div className="col">
-                        <span className="h6 font-semibold text-muted text-sm d-block mb-2"><MdGroups /></span>
-                        <span className="h3 font-bold mb-0">Fellows Registered</span>
+                        <span className="h6 font-semibold  text-sm d-block mb-2"  style={{color:'white'}}><MdGroups  style={{ fontSize: '2rem' }} /></span>
+                        <span className="h3 font-bold mb-0" style={{ color: 'white', fontSize: '1rem' }}>Fellows Registered</span>
                       </div>
                    
                     </div>
-                    <div className="mt-2 mb-0 text-sm">
+                    <div className="mt-2 mb-0 "  >
                     
-                      <span className="text-nowrap text-xs text-muted">100</span>
+                      <span className="text-nowrap  "  style={{ color: 'white', fontSize: '2rem ' }}>100</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col-xl-3 col-sm-6 col-12">
-                <div className="card shadow border-0">
+                <div className="card shadow border-0" style={{background:'#003183'}}>
                   
-                  <div className="card-body">
+                  <div className="card-body" style={{textAlign:'center',height:'200px'}}>
                     <div className="row">
                       <div className="col">
-                        <span className="h6 font-semibold text-muted text-sm d-block mb-2"><BiBookAlt /></span>
-                        <span className="h3 font-bold mb-0">Number of Assessment</span>
+                        <span className="h6 font-semibold  text-sm d-block mb-2"  style={{color:'white'}}><BiBookAlt  style={{ fontSize: '2rem' }}/></span>
+                        <span className="h3 font-bold mb-0" style={{ color: 'white', fontSize: '1rem' }}> Number of Assessment</span>
                       </div>
                 
                     </div>
                     <div className="mt-2 mb-0 text-sm">
                   
-                      <span className="text-nowrap text-xs text-muted">3</span>
+                      <span className="text-nowrap  "  style={{ color: 'white', fontSize: '2rem ' }}>3</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col-xl-3 col-sm-6 col-12">
-                <div className="card shadow border-0">
-                  <div className="card-body">
+                <div className="card shadow border-0" style={{background:'#417505'}}>
+                  <div className="card-body" style={{textAlign:'center',height:'200px'}}>
                     <div className="row">
                       <div className="col">
-                        <span className="h6 font-semibold text-muted text-sm d-block mb-2"><CiCircleCheck /></span>
-                        <span className="h3 font-bold mb-0">Fellows Completed Test</span>
+                        <span className="h6 font-semibold  text-sm d-block mb-2"  style={{color:'white'}}><CiCircleCheck style={{ fontSize: '2rem' }}/></span>
+                        <span className="h3 font-bold mb-0" style={{ color: 'white', fontSize: '1rem' }}>Fellows Completed Test</span>
                       </div>
                     
                     </div>
                     <div className="mt-2 mb-0 text-sm">
                    
-                      <span className="text-nowrap text-xs text-muted">460</span>
+                      <span className="text-nowrap  "  style={{ color: 'white', fontSize: '2rem ' }}>460</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col-xl-3 col-sm-6 col-12">
-                <div className="card shadow border-0">
-                  <div className="card-body">
+                <div className="card shadow border-0" style={{background:'#B76800'}}>
+                  <div className="card-body" style={{textAlign:'center',height:'200px'}}>
                     <div className="row">
                       <div className="col">
-                        <span className="h6 font-semibold text-muted text-sm d-block mb-2"><RiErrorWarningLine /></span>
-                        <span className="h3 font-bold mb-0">Uncompleted Test</span>
+                        <span className="h6 font-semibold  text-sm d-block mb-2"  style={{color:'white'}}><RiErrorWarningLine  style={{ fontSize: '2rem' }}/></span>
+                        <span className="h3 font-bold mb-0"style={{ color: 'white', fontSize: '1rem' }}>Uncompleted Test</span>
                       </div>
                   
                     </div>
-                    <div className="mt-2 mb-0 text-sm">
+                    <div className="mt-2 mb-0 text-sm" >
                 
-                      <span className="text-nowrap text-xs text-muted">540</span>
+                      <span className="text-nowrap  "  style={{ color: 'white', fontSize: '2rem ' }}>540</span>
                     </div>
                   </div>
                 </div>
@@ -195,10 +195,10 @@ const AdminDashboard = () => {
                        <td>
                         <div style={{borderRadius:' 10px', border:'1px solid green',textAlign:'center'}}>{user.testCompleted ? 'Completed' : 'Not Completed'}</div>
                       </td> <td  >
-                        <button className="badge badge-lg badge-dot"  onClick={openModal}>
-                        <CiMenuKebab />
-                                        </button>
-                                           <AnalysisModal isOpen={isModalOpen} onClose={closeModal}/>
+                      <button className="badge badge-lg badge-dot" onClick={openModal} style={{ padding: '20px' }}>
+  <CiMenuKebab />
+</button>
+
                       </td>
                    
                       
@@ -213,54 +213,54 @@ const AdminDashboard = () => {
               </div>
             </div>
             
-             {/* {isModalOpen && (
-        <AnalysisModal isOpen={isModalOpen} onClose={closeModal}/>
-      )} */}
+        
           </div>
         </main>
         );
-      case 'createMeetup':
+      case 'support':
         return (
-          
-           <div className="card">
-      
-
-            <div className="title">Users</div>
+           <div className="card" style={{marginTop:'2rem'}}>
+            <div className="title">Support</div>
             <div className="content">
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label htmlFor="">Name</label>
+                      <label htmlFor="">Title</label>
                       <input type="text" className="form-control" />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="">Message</label>
+                  <textarea className="form-group" id="" cols="30" rows="8" style=   {{width:'100%',border:'1px solid #ccc',padding:'10px',borderRadius:'5px',resize:'vertical'}}></textarea>
                     </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label htmlFor="">Name</label>
+                      <label htmlFor="">Subject</label>
                       <input type="text" className="form-control" />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <button style={{
+              width:'200px',
+              background:'var(--pryColor)',
+              margin:'5px auto 15px auto',
+              borderRadius:'5px',
+              padding:"10px 20px",
+              color:'white'
+            }}>Submit</button>
           </div>
         );
-      case 'deletemeetup':
-        return (
-          <div>
-            {/* UI for deleting meetup */}
-            Delete meetup
-          </div>
-        );
-      case 'settings':
+      case 'userProfile':
         return (
           <div>
             {/* UI for settings */}
-            SETTINGS
+           user profile
           </div>
         );
-      case 'event':
+      case 'logout':
         return (
           <div>
             {/* UI for events */}
@@ -277,28 +277,31 @@ const AdminDashboard = () => {
       <div>
       <Navigation />
       <div className={`left-menu`}>
-        <div className={`selected-menu ${selectedMenu === 'users' ? 'active' : ''}`} onClick={() => handleMenuClick('users')}>
+        <div className={`selected-menu ${selectedMenu === 'dashboard' ? 'active' : ''}`} onClick={() => handleMenuClick('dashboard')}>
           <FaUsers />
           <span>Dashboard</span>
         </div>
-        <div className={`selected-menu ${selectedMenu === 'createMeetup' ? 'active' : ''}`} onClick={() => handleMenuClick('createMeetup')}>
+        <div className={`selected-menu ${selectedMenu === 'support' ? 'active' : ''}`} onClick={() => handleMenuClick('support')}>
           <IoCreateOutline />
           <span>Support</span>
         </div>
-        <div className={`selected-menu ${selectedMenu === 'event' ? 'active' : ''}`} onClick={() => handleMenuClick('event')}>
+        <div className={`selected-menu ${selectedMenu === 'userProfile' ? 'active' : ''}`} onClick={() => handleMenuClick('userProfile')}>
           <MdOutlineEventSeat />
           <span>User Profile</span>
         </div>
-       <div className={`selected-menu ${selectedMenu === 'settings' ? 'active' : ''} logoutBtn`} onClick={handleLogoutClick} >
+       <div className={`selected-menu ${selectedMenu === 'logout' ? 'active' : ''} logoutBtn`} onClick={handleLogoutClick} >
   <IoSettingsOutline />
   <span>Logout</span>
-</div>
+  </div>
 
       </div>
       <div className="page-container">
         {renderContent()}
       </div>
-      
+       {isModalOpen && (
+  <AnalysisModal isOpen={isModalOpen} onClose={closeModal}/>
+)}
+
     </div>
   );
 };

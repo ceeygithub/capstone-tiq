@@ -1,31 +1,29 @@
 import React from 'react'
+import '../styles/Modal.css'
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import ProgressBar from './ProgressBar';
 
 const AnalysisModal = ( { isOpen, onClose }) => {
   return (
     isOpen && (
-      <div className="modal">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Create Meetup</h5>
-              <button type="button" className="btn-close" onClick={onClose}></button>
+      <div className="analysisModal">
+        <div className="modalDialog">
+          <div className="modalContent">
+            <div className="modalHeader">
+              <h5 className="modalTitle">Fellow's Assessment Result</h5>
+              <button type="button" className="btn-close" onClick={onClose}><IoMdCloseCircleOutline /></button>
             </div>
-            <div className="modal-body">
-              {/* Your form content for creating a meetup */}
-              <div className="form-group">
-                <label htmlFor="">Name</label>
-                <input type="text" className="form-control" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="">Date</label>
-                <input type="text" className="form-control" />
-              </div>
-              {/* Add more form fields as needed */}
+            <div className="modalBody">
+              <ProgressBar />
+                  <ProgressBar/>
+                      <ProgressBar/>
             </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
+            <div>
+             <p>Recommended learning track based on assessment result</p>
+             <div className='track'>Android Development</div>
             </div>
+              <button type="button" className="btnSave" >Save Result</button>
+          
           </div>
         </div>
       </div>

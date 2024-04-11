@@ -1,0 +1,79 @@
+.analysisModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(102, 102, 102, 0.673);
+    z-index: 10000;
+}
+
+.modalDialog {
+    background-color: white;
+    border-radius: 8px;
+    width: 600px;
+}
+
+.modalContent {
+    padding: 20px;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    color: var(--textColor);
+}
+.modalHeader svg{
+    text-align: center;
+}
+
+.modalTitle {
+    margin: 0;
+}
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+   
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.btnSave{
+display: block;
+width: 100%;
+padding: 10px 20px;
+border-radius: 10px;
+background: var(--pryColor);
+color: white;
+transition: all var(--transition);
+}
+.btnSave:hover {
+    background: orangered;
+}
+.modalBody {
+    margin-bottom: 20px;
+}
+.track{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--textColor);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}

@@ -196,7 +196,8 @@ h3 {
         background-color: #ffffff;
         top: 100%;
         left: 0;
-        border: 1px solid grey;
+        border: 1px solid rgba(128, 128, 128, 0.523);
+        padding:  15px 0;
     }
 
     .nav .nav-list li {
@@ -212,6 +213,26 @@ h3 {
     .ctaBtn {
         margin: 0;
     }
+
+        .welcomeMessage {
+            display: none;
+         
+        }
+                .adminLogo {
+                    position: absolute;
+                    left: 5%;
+                }
+                   .adminAvatar {
+                        display: flex;
+                          justify-content: center;
+                         margin-top: 10px;
+                          }
+                            
+                      .adminAvatarImg {
+                          width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                                  }
 }
 
 

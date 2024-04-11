@@ -60,9 +60,10 @@ align-items: middle;
 @media only screen and (max-width: 768px) {
     .faqContainer {
         display: flex;
-        flex-direction: column;
+    flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
+        margin-bottom: 5rem;
     }
 
     .faqRight {
