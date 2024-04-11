@@ -1,13 +1,13 @@
-/* .faq {
-    padding: 0 3.5rem;
-} */
+.faq {
+    padding: 0 5rem;
+}
 
 .faqContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     margin: 20px 0;
-    gap: 12%;
+    /* gap: 10%; */
     transition: height 0.3s ease;
     height: 700px;
 

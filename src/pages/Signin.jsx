@@ -1,32 +1,49 @@
+
+
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { CiMail } from "react-icons/ci";
-import { FaRegEyeSlash, FaRegEye } from "react-icons/fa"; // Import the eye and eye slash icons
-import '../styles/Signin.css'
-import logo from '../asset/TECHiQ (3).png'
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
+import '../styles/Signin.css';
+import logo from '../asset/TECHiQ (3).png';
+import { useAuth } from '../Contexts/AuthContext';
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // State to manage password visibility
+  const [showPassword, setShowPassword] = useState(false);
+  const { login, isAuthenticated,user } = useAuth();
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can perform validation here before navigating
-    if (email === 'admin@gmail.com' && password === 'admin') {
-      navigate('/adminDashboard');
-    } else {
-      navigate('/overview');
-    }
+    try {
+      await login(email, password);
+      if (user && isAuthenticated()) {
+        if (email === 'admin@gmail.com') {
+          navigate('/adminDashboard');
+        } else {
+          navigate('/overview');
+        }
+      }
+      else{
+            //  navigate('/');
+              setError('Login failed. Please check email and password and  try again.');
+      }
+   } catch (error) {
+  console.error('Error during login:', error);
+  setError('Login failed. Please try again.');
+}
+
   };
 
   const handleReset = () => {
-    // Implement your logic for resetting password
+    navigate('/ResetPassword');
   };
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    setShowPassword((prev) => !prev);
   };
 
   return (
@@ -35,10 +52,10 @@ const SignIn = () => {
         <div className="LoginFormContainer">
           <div className="LoginFormInnerContainer">
             <img src={logo} alt="" className='formLogo'/>
-            <header className="formheader">
-              <h3>Welcome back, Fellow</h3>
+            <div className="Signinformheader">
+              <h3 style={{textAlign:'left'}}>Welcome back, Fellow</h3>
               <h6>Enter your email address and password to access your personalized learning portal.</h6>
-            </header>
+            </div>
             <form onSubmit={handleSubmit}>
               <div className="inputContainer">
                 <label htmlFor="email">
@@ -72,10 +89,9 @@ const SignIn = () => {
                     required
                   />
                   {showPassword ? (
-                  
                      <FaRegEye className="icons" alt="Show Password Icon" onClick={togglePasswordVisibility} />
                   ) : (
-                   <FaRegEyeSlash className="icons" alt="Hide Password Icon" onClick={togglePasswordVisibility} />
+                     <FaRegEyeSlash className="icons" alt="Hide Password Icon" onClick={togglePasswordVisibility} />
                   )}
                 </div>
               </div>
@@ -88,10 +104,14 @@ const SignIn = () => {
                   Forgot Password?
                 </Link>
               </div>
+                      {error && <div className="error-message">{error}</div>}
               <button type="submit" className="LoginButton">
                 Login
               </button>
+           
+
             </form>
+       
           </div>
         </div>
       </div>

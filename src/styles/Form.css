@@ -2,6 +2,7 @@
 form {  
     margin: auto;
  position: relative;
+ margin-bottom: 30px;
 }
 .answerContainer{
     display: flex;
@@ -17,10 +18,16 @@ form {
 .textArea{
     display: block;
     width: 100%;
+    border: 1px solid grey;
+        margin: 10px 5px;
+        padding: 10px;
 }
 .question{
     display: block;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    /* font-weight: bold; */
 }
 fieldset {
     border: 0;
@@ -61,8 +68,8 @@ width: 100px;
 .timer{
     display: flex;
 position: absolute;
-top: -2.1%;
-left: 105%;
+top: -3.9%;
+left: 94%;
 z-index: 99;
 width: 100px;
 

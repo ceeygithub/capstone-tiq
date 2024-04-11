@@ -106,8 +106,11 @@
     width: 100px;
   margin-bottom: 20px;
 }
-.formheader{
+.Signinformheader{
 text-align: left;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
 }
 .inputIcon {
     position: relative;
@@ -140,6 +143,9 @@ text-align: left;
 
 .LoginFormContainer .LoginFormInnerContainer .LoginButton:hover {
     background-color:orangered;
+}
+.error-message {
+    color: var(--pryColor);
 }
 
 @media only screen and (max-width: 1200px) {

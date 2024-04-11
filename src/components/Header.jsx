@@ -10,11 +10,11 @@ const Header = () => {
     navigate('/signin');
   };
   return (
-    <section className='about'>
-      <div className="about-container">
+    <section className='about container '>
+      <div className="about-container ">
         <div className="about-right">
              <h1 className='HeroHeader'>Uncover Your  <br/>Tech Potential</h1>
-                <p className='heroParagraph'>We leverage a personalized psychometric assessment  <br/> to understand your unique strengths, learning <br/> preferences, and areas for  growth</p>
+                <p className='heroParagraph'>We leverage a personalized psychometric <br/>  assessment  to understand your unique <br/> strengths, learning  preferences, <br/>and areas for  growth</p>
             <button className='joinBtn ' onClick={handleJoin}>Get started</button>
         </div>
         <div className="about-left">

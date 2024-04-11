@@ -14,14 +14,14 @@ const Response = () => {
         <div className="overviewFormContainer">
           <div className="overviewFormInnerContainer">
             <img src={logo} alt="" className='overviewLogo'/>
-            <header className="overviewheader">
+            <div className="overviewheader">
 <FaCircleCheck  style={{fontSize:'50px',marginBottom:'10px'}}/>
                 <h2>Well done!</h2>
        <p style={{textAlign:'center'}}>Congratulations on completing the psychometric test
         <br />We are thrilled to be part of your journey <br />towards self-awareness and success.
        </p>
 <button className='overviewButton' onClick={HandleBack}>Go Back</button>
-            </header>
+            </div>
            
           </div>
         </div>

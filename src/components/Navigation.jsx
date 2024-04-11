@@ -2,67 +2,119 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { IoIosMenu } from 'react-icons/io';
 import '../styles/Navigation.css';
 import Logo from '../asset/TECHiQ (3).png';
-import { RiArrowDownSLine } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
+import { IoIosMenu } from "react-icons/io";
+import { useAuth } from '../Contexts/AuthContext'; 
+import { IoIosNotificationsOutline } from "react-icons/io";
+import { IoLayers } from "react-icons/io5";
+import { CiLaptop } from "react-icons/ci";
+import { FaCodeBranch } from "react-icons/fa";
 
 const Navigation = () => {
-      const navigate = useNavigate();
-  const [showNav, setShowNav] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
+    const auth = useAuth();
+    const { isAdmin,  isAuthenticated} = useAuth(); 
+    const navigate = useNavigate();
+    const [showNav, setShowNav] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
 
-  const toggleNav = () => {
-    setShowNav(!showNav);
-  };
+    const toggleNav = () => {
+        setShowNav(!showNav);
+    };
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
+    const toggleDropdown = () => {
+  setShowDropdown(prevState => !prevState);
+};
 
-  const smoothScrollTo = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+    const smoothScrollTo = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     const handleJoin = () => {
-    navigate('/signin');
-  };
-// const HandleAbout=()=>{
-//   navigate('/about');
-// }
+        navigate('/signin');
+    };
 
-  return (
-    <nav className="nav">
-      <div className="nav-title">
-        <img src={Logo} alt="Logo" className="logoImg" />
-      </div>
-      <div className="nav-btn" onClick={toggleNav}>
-        <IoIosMenu />
-      </div>
-      <ul className={`nav-list ${showNav ? 'show' : ''}`}>
-        <li><Link to="#" className="navLink active" onClick={() => smoothScrollTo('home')}>Home</Link></li>
-        {/* <li><Link to="#" className='navLink' onClick={() => smoothScrollTo('about')}>About us</Link></li> */}
-            {/* <li><Link to="#" className='navLink' onClick={HandleAbout}>About us</Link></li> */}
-        <li>
-          <span className='navLink' onClick={toggleDropdown}>Assessments <RiArrowDownSLine /></span>
-          <ul className={`dropdown ${showDropdown ? 'show' : ''}`}>
-            <li><Link to="#" onClick={() =>{} }>Assessment 1</Link></li>
-            <li><Link to="#" onClick={() =>{} }>Assessment 2</Link></li>
-                 <li><Link to="#" onClick={() =>{} }>Assessment 3</Link></li>
+    return (
+        <nav className="nav">
+            <header className='container'>
          
-          </ul>
-        </li>
-        <li><Link to="#" className='navLink' onClick={() => smoothScrollTo('faq')}>FAQs</Link></li>
-        {/* <li><Link to="#" className='navLink' onClick={() => smoothScrollTo('contact')}>Contact Us</Link></li> */}
-<li><Link to="/contact" className='navLink'>Contact Us</Link></li>
+                <div className={`nav-title ${isAdmin() ? 'adminLogo' : ''}`}>
+    <img src={Logo} alt="Logo" className="logoImg" />
+</div>
 
-        <button className='ctaBtn' onClick={handleJoin}>Get started</button>
-      </ul>
-    </nav>
-  );
-}
+                <div className="nav-btn" onClick={toggleNav}>
+                    <IoIosMenu />
+                </div>
+                  {isAdmin() && (
+                        <>
+                            {auth.user && auth.user.email && <h3 className='welcomeMessage'>Welcome, Admin</h3>}
+                        
+                        </>
+                    )}
+                <ul className={`nav-list ${showNav ? 'show' : ''}`}>
+                    {!isAdmin() && (
+                        <li><Link to="#" className="navLink active" onClick={() => smoothScrollTo('home')}>Home</Link></li>
+                    )}
+               
+           {!isAdmin() && (
+  <li>
+    <span className='navLink' onClick={toggleDropdown}>Assessments</span>
+    <div className={`Navdropdown ${showDropdown ? 'show' : ''}`}>
+      <div className="assessment-item">
+      <IoLayers />
+        <div>
+          <h3>Intelligence Test</h3>
+          <p>Helps us understand your ability to learn new concepts and excel in a tech environment.</p>
+        </div>
+      </div>
+      <div className="assessment-item">
+   <CiLaptop />
+        <div>
+          <h3>Qalitative Inquiry</h3>
+          <p>Measures your potential for success in fields like coding, data analysis, product design, cybersecurity etc </p>
+        </div>
+      </div>
+      <div className="assessment-item">
+     <FaCodeBranch />
+        <div>
+          <h3>Personality Test</h3>
+          <p>Helps us personalize your program experience to match your learning style and goals.</p>
+        </div>
+      </div>
+    </div>
+  </li>
+)}
+
+                    {!isAdmin() && (
+                        <li><Link to="#" className='navLink' onClick={() => smoothScrollTo('faq')}>FAQs</Link></li>
+                    )}
+                    {!isAdmin() && (
+                        <li><Link to="/contact" className='navLink'>Contact Us</Link></li>
+                    )}
+                    {isAdmin() && (
+                        <>
+                           
+                            <IoIosNotificationsOutline />
+                            <li className="adminAvatar">
+                                <img  className='adminAvatarImg' src="admin_avatar_image_url" alt="Admin Avatar" />
+                            </li>
+
+                        
+                        </>
+                    )}
+                    {!isAdmin() && (
+                        <li>
+                            <button className='ctaBtn' onClick={handleJoin}>Get started</button>
+                        </li>
+                    )}
+                </ul>
+            </header>
+        </nav>
+    );
+};
 
 export default Navigation;

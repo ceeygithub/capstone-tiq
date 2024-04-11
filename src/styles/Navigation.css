@@ -1,19 +1,58 @@
-.nav {
+.nav{
     width: 100%;
     height: 90px;
     background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    position: relative;
-    justify-content: space-between;
-    padding: 0 3.5rem;
+    
     border-bottom: 1px solid rgba(128, 128, 128, 0.222);
+    z-index: 99;
 }
-
+header{
+        display: flex;
+            align-items: center;
+            position: relative;
+            justify-content: space-between;
+    width: 100%;
+        height: 90px;
+}
 .logoImg {
     width: 6.5rem;
 }
 
+.nav-title {
+    padding: 0;
+    margin-right: auto;
+    /* Pushes the logo to the left */
+}
+.adminLogo {
+    position: absolute;
+    left: -5%;
+}
+
+h3 {
+    text-align: center;
+    /* Centers the "Welcome! Admin" text */
+}
+/* Add styles for the welcome message */
+.welcomeMessage {
+    margin: 0 auto;
+    /* Center the message horizontally */
+}
+
+/* Add styles for the admin avatar */
+.adminAvatar {
+    margin-left: auto; /* Push the avatar to the end */
+    display: flex;
+        width: 4rem;
+   
+}
+
+.adminAvatarImg {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    border: 1px solid var(--pryColor);
+
+}
 .nav .nav-list {
     display: flex;
     align-items: center;
@@ -78,43 +117,54 @@
 }
 
 
-
-.dropdown {
+.Navdropdown {
     display: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    width: 500px;
+    height: auto;
     position: absolute;
     top: 100%;
-    left: 40%;
+    left: 23%;
     background-color: #ffffff;
-     padding: 10px;
+    padding: 10px;
     border: 1px solid #ccc;
     z-index: 1;
-    /* Ensure dropdown is above other elements */
 }
 
-.dropdown.show {
-    display: block;
-    /* Show the dropdown when 'showDropdown' state is true */
+.Navdropdown.show {
+    display: grid;
 }
 
-/* Add any additional styling for the dropdown items as needed */
-.dropdown li {
-    list-style: none;
+
+.assessment-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
 }
 
-.dropdown li a {
-    text-decoration: none;
-    color: #333;
-    /* Color of dropdown item text */
+.assessment-item:hover {
+    background-color: #f0f0f0;
 }
 
-.dropdown li a:hover {
-    color: #000;
-    /* Color of dropdown item text on hover */
+.assessment-item i {
+    margin-right: 1rem;
 }
 
+.assessment-item h3,
+.assessment-item p {
+    margin: 0;
+}
 @media screen and (max-width: 768px) {
     .nav {
         padding: 1rem;
+        position: fixed;
+        width: 100%;
     }
 
     .nav .nav-btn {
@@ -163,3 +213,5 @@
         margin: 0;
     }
 }
+
+
