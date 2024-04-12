@@ -58,13 +58,20 @@ align-items: middle;
 }
 
 @media only screen and (max-width: 768px) {
-    .faqContainer {
+    /* .faqContainer {
         display: flex;
     flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
-        margin-bottom: 5rem;
-    }
+       padding-bottom: 5rem;
+    } */
+                .faqContainer {
+            grid-template-columns: 1fr;
+                /* Change to a single column layout */
+                height: auto;
+                    justify-content: center;
+                    padding: 10px;
+            }
 
     .faqRight {
         text-align: center;

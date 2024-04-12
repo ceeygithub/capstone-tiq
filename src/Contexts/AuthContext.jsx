@@ -75,7 +75,36 @@ useEffect(() => {
   }
 };
 
- const login = async (email, password) => {
+//  const login = async (email, password) => {
+//   setError(""); // Clear any previous error messages
+
+//   try {
+//     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    
+//     const userRef = doc(db, 'users', userCredential.user.uid);
+//     const userSnapshot = await getDoc(userRef);
+
+//     if (userSnapshot.exists()) {
+//       const userData = userSnapshot.data();
+//       setRole(userData.role);
+//       console.log('User logged in successfully:', userData);
+//       return { userCredential, role: userData.role }; // Return user credential and role
+//     } else {
+//       console.error("User document does not exist");
+//       setError("User document does not exist");
+//       return null;
+//     }
+//   } catch (error) {
+//     if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
+//       setError("Invalid email or password.");
+//     } else {
+//       setError(error.message);
+//     }
+//     return null;
+//   }
+// };
+
+const login = async (email, password) => {
   setError(""); // Clear any previous error messages
 
   try {
@@ -86,23 +115,21 @@ useEffect(() => {
 
     if (userSnapshot.exists()) {
       const userData = userSnapshot.data();
-      setRole(userData.role);
       console.log('User logged in successfully:', userData);
       return { userCredential, role: userData.role }; // Return user credential and role
     } else {
       console.error("User document does not exist");
       setError("User document does not exist");
-      return null;
+      return { userCredential, role: null }; // Return user credential with null role
     }
   } catch (error) {
-    if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
-      setError("Invalid email or password.");
-    } else {
-      setError(error.message);
-    }
+    console.error('Error during login:', error);
+    setError(error.message); // Set error message based on the error thrown
     return null;
   }
 };
+
+
   const handleTestSubmit = async (userId, result) => {
     try {
       const userRef = collection(db, 'users').doc(userId);
@@ -186,10 +213,8 @@ const updateUserProfile = async (profileData, image, setUploadProgress) => {
   
   };
 
-
-
   const isRegularUser = () => {
-    return user && !isAdmin();
+    return !!user 
   };
 
   const isAuthenticated = () => {

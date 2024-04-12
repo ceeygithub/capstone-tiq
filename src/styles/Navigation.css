@@ -209,7 +209,15 @@ h3 {
     .nav .nav-list.show {
         display: flex;
     }
+.Navdropdown.show {
+    display: block;
 
+}
+.Navdropdown {
+    
+    top: 40%;
+    left: -2%;
+}
     .ctaBtn {
         margin: 0;
     }

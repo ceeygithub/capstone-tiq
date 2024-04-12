@@ -4,8 +4,10 @@ import StepProgressBar from '../components/StepProgressBar';
 import Form1 from '../components/Form1';
 import Form2 from '../components/Form2';
 import Form3 from '../components/Form3';
+import { useNavigate } from 'react-router-dom';
 
 const FormPage = () => {
+      const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
    const [answers, setAnswers] = useState({});
@@ -46,7 +48,8 @@ const FormPage = () => {
       },
       body: new URLSearchParams(allAnswers).toString(),
     });
-
+    setSubmitted(true);
+     navigate('/response');
     // Display submission status
    const submissionStatus = Object.keys(allAnswers).length > 0 ? "Answers submitted successfully!" : "No answers submitted!";
     alert(submissionStatus);
@@ -58,8 +61,8 @@ const FormPage = () => {
       form3: {}
     });
 
-    // Set submitted to true
-    setSubmitted(true);
+
+
   } catch (error) {
     console.error('Error submitting form:', error);
     alert('Failed to submit answers. Please try again later.');

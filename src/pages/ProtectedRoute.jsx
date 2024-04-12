@@ -3,9 +3,11 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from '../Contexts/AuthContext';
 
 
+
 const ProtectedRoute = () => {
+   const auth = useAuth();
   const { user,isAuthenticated } = useAuth(); 
-  if (!user && !isAuthenticated()) return <Navigate to="/" />;
+  if (!auth.user && !isAuthenticated()) return <Navigate to="/" />;
 
   return <Outlet />;
 }

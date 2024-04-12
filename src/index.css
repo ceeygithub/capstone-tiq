@@ -92,3 +92,6 @@ font-family: "Nunito Sans", sans-serif;
     padding: 0 3.5rem;
     margin: auto;
 }
+p{
+  line-height: 1.5;
+}
