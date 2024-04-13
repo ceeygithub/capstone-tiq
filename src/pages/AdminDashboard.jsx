@@ -1,9 +1,5 @@
-// import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/adminDashboard.css';
-import { FaUsers } from "react-icons/fa";
-import { IoCreateOutline } from "react-icons/io5";
-import { MdOutlineEventSeat } from "react-icons/md";
-import { IoSettingsOutline } from "react-icons/io5";
 import Navigation from '../components/Navigation';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../Contexts/AuthContext';
@@ -12,14 +8,19 @@ import { BiBookAlt } from "react-icons/bi";
 import { CiCircleCheck } from "react-icons/ci";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { CiMenuKebab } from "react-icons/ci";
-
-import React, { useState, useEffect } from 'react';
+import { CiGrid31 } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
+import { CiCircleQuestion } from "react-icons/ci";
+import { GoSignOut } from "react-icons/go";
 import { db } from '../Firebase';
 import AnalysisModal from '../components/AnalysisModal';
+import Heroimg from '../asset/Hero image.png';
+import { FaCamera } from "react-icons/fa";
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
+      const auth = useAuth();
   const { logout, isAdmin, user } = useAuth(); 
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState('admin');
@@ -255,15 +256,52 @@ const AdminDashboard = () => {
         );
       case 'userProfile':
         return (
-          <div>
-            {/* UI for settings */}
-           user profile
+          
+         <div className="card" style={{marginTop:'2rem'}}>
+            <div className="title" style={{display:'flex',justifyContent:'space-between'}}>
+              <h3>Profile</h3>
+              <h5 style={{color:'orangered'}}>Edit Profile</h5>
+            </div>
+            <div className="content">
+              <div className="container-fluid">
+                <div className="row">
+                  <div className="col-sm-6 flex top relative" >
+                     <FaCamera className='camera'/>
+                              <img src="https://images.unsplash.com/photo-1573166953836-06864dc70a21?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Girl with laptop"  className='CardadminAvatar' />
+                     <div >
+                       {auth.user && auth.user.email && <h3 > Admin</h3>}
+                     </div>   
+
+                  </div>
+                 <div className='bottom'>
+                  <h5>Email Address:</h5>
+                 <h5>{auth.user.email}</h5>
+                 </div>
+                  <div className='bottom'>
+                  <h5>Phone Number:</h5>
+                 <h5>+2348092945599</h5>
+                 </div>
+                  <div className='bottom'>
+                  <h5>Country:</h5>
+                 <h5>Nigeria</h5>
+                 </div>
+                </div>
+              </div>
+            </div>
+            {/* <button style={{
+              width:'200px',
+              background:'var(--pryColor)',
+              margin:'5px auto 15px auto',
+              borderRadius:'5px',
+              padding:"10px 20px",
+              color:'white'
+            }}>Submit</button> */}
           </div>
         );
       case 'logout':
         return (
           <div>
-            {/* UI for events */}
+      
             EVENTS
           </div>
         );
@@ -278,19 +316,19 @@ const AdminDashboard = () => {
       <Navigation />
       <div className={`left-menu`}>
         <div className={`selected-menu ${selectedMenu === 'dashboard' ? 'active' : ''}`} onClick={() => handleMenuClick('dashboard')}>
-          <FaUsers />
+         <CiGrid31 />
           <span>Dashboard</span>
         </div>
         <div className={`selected-menu ${selectedMenu === 'support' ? 'active' : ''}`} onClick={() => handleMenuClick('support')}>
-          <IoCreateOutline />
+         <CiCircleQuestion />
           <span>Support</span>
         </div>
         <div className={`selected-menu ${selectedMenu === 'userProfile' ? 'active' : ''}`} onClick={() => handleMenuClick('userProfile')}>
-          <MdOutlineEventSeat />
+          <CiUser />
           <span>User Profile</span>
         </div>
        <div className={`selected-menu ${selectedMenu === 'logout' ? 'active' : ''} logoutBtn`} onClick={handleLogoutClick} >
-  <IoSettingsOutline />
+ <GoSignOut />
   <span>Logout</span>
   </div>
 

@@ -48,6 +48,7 @@ position: fixed;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+
 }
 .logoutBtn{
     margin-top: 23rem;
@@ -64,10 +65,19 @@ position: fixed;
 .selected-menu.active span {
     color: white;
 }
-
+.selected-menu svg{
+    margin-right: 10px;
+}
 .main-content {
     min-height: calc(100vh - 60px);
     clear: both;
+}
+.bottom{
+    margin: 20px 0;
+    padding-top: 10px;
+    display: flex;
+    gap:20px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.315);
 }
 
 .page-container {
@@ -95,6 +105,23 @@ position: fixed;
     margin-bottom: 10px;
     color: #000;
     font-size: 18px;
+}
+.CardadminAvatar{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(128, 128, 128, 0.657);
+} 
+.top{
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+.camera{
+    position: absolute;
+    top: 37%;
+    left: 10%;
 }
 
 @media only screen and (max-width: 767px) {
