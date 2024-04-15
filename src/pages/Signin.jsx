@@ -13,7 +13,7 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const { login, isAuthenticated,user,isAdmin,isRegularUser } = useAuth();
+  const { login, isAuthenticated,isAdmin,isRegularUser } = useAuth();
   const auth = useAuth();
   const [error, setError] = useState('');
 

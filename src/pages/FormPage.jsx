@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const FormPage = () => {
       const navigate = useNavigate();
+      // eslint-disable-next-line no-unused-vars
   const [submitted, setSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
    const [answers, setAnswers] = useState({});
@@ -33,11 +34,11 @@ const FormPage = () => {
     setCurrentStep(prevStep => prevStep + 1);
   };
 
-  const submitForms= async () => {
+  const submitForms = async () => {
   // Combine all form data
-   const allAnswers = Object.values(formData).reduce((acc, form) => {
-      return { ...acc, ...form };
-    }, {});
+  const allAnswers = Object.values(formData).reduce((acc, form) => {
+    return { ...acc, ...form };
+  }, {});
 
   try {
     const response = await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfMSJ6Ly-Oh8RrSTtLMgeKDH0iMO9IyIuFkeLpoun6c3StLjg/formResponse', {
@@ -48,10 +49,15 @@ const FormPage = () => {
       },
       body: new URLSearchParams(allAnswers).toString(),
     });
+
+    // Use the response variable here
+    console.log(response);
+
     setSubmitted(true);
-     navigate('/response');
+    navigate('/response');
+
     // Display submission status
-   const submissionStatus = Object.keys(allAnswers).length > 0 ? "Answers submitted successfully!" : "No answers submitted!";
+    const submissionStatus = Object.keys(allAnswers).length > 0 ? "Answers submitted successfully!" : "No answers submitted!";
     alert(submissionStatus);
 
     // Reset form data after successful submission
@@ -60,8 +66,6 @@ const FormPage = () => {
       form2: {},
       form3: {}
     });
-
-
 
   } catch (error) {
     console.error('Error submitting form:', error);

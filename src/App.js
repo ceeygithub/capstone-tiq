@@ -10,7 +10,6 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Overview from "./pages/Overview";
 import Response from "./pages/Response";
 import ContactForm from "./components/ContactForm";
-import ProtectedRoute from "./pages/ProtectedRoute";
 import Multipage from './pages/Multipage'
 
 

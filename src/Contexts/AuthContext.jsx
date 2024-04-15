@@ -2,7 +2,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { auth, db,storage } from '../Firebase'; 
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,updateProfile } from 'firebase/auth';
-import { doc, getDoc, collection, addDoc, getDocs } from 'firebase/firestore';
+import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import {  ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
