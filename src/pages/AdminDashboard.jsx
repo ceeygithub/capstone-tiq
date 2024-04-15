@@ -16,6 +16,7 @@ import { db } from '../Firebase';
 import AnalysisModal from '../components/AnalysisModal';
 import { FaCamera } from "react-icons/fa";
 
+
 const AdminDashboard = () => {
     // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([]);
@@ -64,6 +65,10 @@ const AdminDashboard = () => {
     }
    
   };
+const handleSelectChange = (e) => {
+  const selectedOption = e.target.value;
+  // Do something with the selected option, such as storing it in state
+};
 
 
   const renderContent = () => {
@@ -241,12 +246,14 @@ const AdminDashboard = () => {
                       <label htmlFor="">Subject</label>
                       {/* <input type="text" className="form-control" />
                        */}
-                       <select className="form-control">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-              {/* Add more options as needed */}
-            </select>
+                    <select className="form-control" onChange={(e) => handleSelectChange(e)} >
+  <option value="">Select an option </option>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+</select>
+
+
                     </div>
                   </div>
                 </div>
