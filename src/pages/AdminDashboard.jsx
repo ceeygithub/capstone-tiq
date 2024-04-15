@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/adminDashboard.css';
 import Navigation from '../components/Navigation';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Contexts/AuthContext';
 import { MdGroups } from "react-icons/md";
 import { BiBookAlt } from "react-icons/bi";
@@ -14,14 +14,15 @@ import { CiCircleQuestion } from "react-icons/ci";
 import { GoSignOut } from "react-icons/go";
 import { db } from '../Firebase';
 import AnalysisModal from '../components/AnalysisModal';
-import Heroimg from '../asset/Hero image.png';
 import { FaCamera } from "react-icons/fa";
 
 const AdminDashboard = () => {
+    // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
       const auth = useAuth();
-  const { logout, isAdmin, user } = useAuth(); 
+  const { logout, user } = useAuth(); 
+  // eslint-disable-next-line no-unused-vars
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState('admin');
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -172,18 +173,18 @@ const AdminDashboard = () => {
                       </td>
                       <td>
                         <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
-                        <a className="text-heading font-semibold" href="#">
+                        <div className="text-heading font-semibold" href="#">
                           Cynthia Ekhomwandolor
-                                        </a>
+                                        </div>
                       </td>
                       <td>
                        Nigeria
                                     </td>
                       <td>
                      
-                        <a className="text-heading font-semibold" href="#">
+                        <div className="text-heading font-semibold" href="#">
                          +2348091923398
-                                        </a>
+                                        </div>
                       </td>
                       <td>
                        {user.email}
@@ -232,13 +233,20 @@ const AdminDashboard = () => {
                     </div>
                     <div className="form-group">
                       <label htmlFor="">Message</label>
-                  <textarea className="form-group" id="" cols="30" rows="8" style=   {{width:'100%',border:'1px solid #ccc',padding:'10px',borderRadius:'5px',resize:'vertical'}}></textarea>
+                  <textarea className="form-group" id="" cols="30" rows="8" style=   {{width:'100%',border:'1px solid #ccc',padding:'10px',borderRadius:'5px',resize:'vertical'}} placeholder="Description"></textarea>
                     </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
                       <label htmlFor="">Subject</label>
-                      <input type="text" className="form-control" />
+                      {/* <input type="text" className="form-control" />
+                       */}
+                       <select className="form-control">
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+              {/* Add more options as needed */}
+            </select>
                     </div>
                   </div>
                 </div>
@@ -288,14 +296,7 @@ const AdminDashboard = () => {
                 </div>
               </div>
             </div>
-            {/* <button style={{
-              width:'200px',
-              background:'var(--pryColor)',
-              margin:'5px auto 15px auto',
-              borderRadius:'5px',
-              padding:"10px 20px",
-              color:'white'
-            }}>Submit</button> */}
+ 
           </div>
         );
       case 'logout':

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/Form.css';
-import { useAuth } from '../Contexts/AuthContext';
 
-const Form3 = ({ formData, handleChange, submitForms }) => {
+
+const Form3 = ({  handleChange, submitForms }) => {
+  // eslint-disable-next-line no-unused-vars
    const [submitted, setSubmitted] = useState(false);
 //      const { user, handleTestSubmit } = useAuth();
 //       const [result, setResult] = useState('');

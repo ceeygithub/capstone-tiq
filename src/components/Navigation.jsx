@@ -14,7 +14,7 @@ import { FaCodeBranch } from "react-icons/fa";
 
 const Navigation = () => {
     const auth = useAuth();
-    const { isAdmin, isAuthenticated } = useAuth(); 
+    const { isAdmin } = useAuth(); 
     const navigate = useNavigate();
     const [showNav, setShowNav] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
