@@ -65,10 +65,10 @@ const AdminDashboard = () => {
     }
    
   };
-const handleSelectChange = (e) => {
-  const selectedOption = e.target.value;
-  // Do something with the selected option, such as storing it in state
-};
+// const handleSelectChange = (e) => {
+//   const selectedOption = e.target.value;
+
+// };
 
 
   const renderContent = () => {
@@ -246,7 +246,7 @@ const handleSelectChange = (e) => {
                       <label htmlFor="">Subject</label>
                       {/* <input type="text" className="form-control" />
                        */}
-                    <select className="form-control" onChange={(e) => handleSelectChange(e)} >
+                    <select  >
   <option value="">Select an option </option>
   <option value="option1">Option 1</option>
   <option value="option2">Option 2</option>
