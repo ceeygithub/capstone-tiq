@@ -75,35 +75,6 @@ useEffect(() => {
   }
 };
 
-//  const login = async (email, password) => {
-//   setError(""); // Clear any previous error messages
-
-//   try {
-//     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    
-//     const userRef = doc(db, 'users', userCredential.user.uid);
-//     const userSnapshot = await getDoc(userRef);
-
-//     if (userSnapshot.exists()) {
-//       const userData = userSnapshot.data();
-//       setRole(userData.role);
-//       console.log('User logged in successfully:', userData);
-//       return { userCredential, role: userData.role }; // Return user credential and role
-//     } else {
-//       console.error("User document does not exist");
-//       setError("User document does not exist");
-//       return null;
-//     }
-//   } catch (error) {
-//     if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
-//       setError("Invalid email or password.");
-//     } else {
-//       setError(error.message);
-//     }
-//     return null;
-//   }
-// };
-
 const login = async (email, password) => {
   setError(""); // Clear any previous error messages
 
@@ -208,19 +179,19 @@ const updateUserProfile = async (profileData, image, setUploadProgress) => {
     }
   };
 
-  const isAdmin = () => {
-    return user && user.email === 'admin@gmail.com'
-  
-  };
 
-  const isRegularUser = () => {
-    return !!user 
-  };
+const isAuthenticated = () => {
+  return !!user; // Returns true if auth.user is not null, false otherwise
+};
 
-  const isAuthenticated = () => {
-    return !!user;
-  };
+const isAdmin = () => {
+  return isAuthenticated() && user && user.email === 'admin@gmail.com';
+};
 
+
+const isRegularUser = () => {
+  return isAuthenticated() && !isAdmin();
+};
 
 
   const value = {

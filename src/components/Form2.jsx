@@ -298,9 +298,9 @@ const Form2 = ({ formData, handleChange, nextForm, setFormCompleted }) => {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
  const handleNext = () => {
-    // Perform any validation or processing if needed before moving to the next form
-    setFormCompleted(); // Mark Form2 as completed
-    nextForm({ form2: formData }); // Move to the next form and pass form data
+       setFormCompleted();
+    nextForm({ form2: formData }); 
+    
   };
 
   return (

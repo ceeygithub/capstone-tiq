@@ -18,36 +18,35 @@ const SignIn = () => {
   const [error, setError] = useState('');
 
 
-
 const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    console.log("Logging in...");
-    await login(email, password);
-    console.log("User after login:", auth.user);
-    console.log("Is authenticated:", isAuthenticated());
-    console.log("Is admin:", isAdmin());
-    console.log("Is regular user:", isRegularUser());
+    e.preventDefault();
+    try {
+      console.log('Logging in...');
+      await login(email, password);
+      console.log('User after login:', auth.user);
+      console.log('Is authenticated:', isAuthenticated());
+      console.log('Is admin:', isAdmin());
+      console.log('Is regular user:', isRegularUser());
 
-    // Redirect user based on role after successful login
-    if (auth.user && isAuthenticated()) {
-      if (isAdmin()) {
-        navigate('/adminDashboard');
-      } else if (isRegularUser()) {
-        navigate('/overview');
-      } else {
-        // Handle unexpected roles
-        setError('Unknown user role. Please contact support.');
+      // Clear any previous error message
+      setError('');
+
+      // Redirect user based on role after successful login
+      if (isAuthenticated()) {
+        if (isAdmin()) {
+          navigate('/adminDashboard');
+        } else if (isRegularUser()) {
+          navigate('/overview');
+        } else {
+          // Handle unexpected roles
+          setError('Unknown user role. Please contact support.');
+        }
       }
-    } else {
-      // Handle authentication failure
-      setError('Login failed. Please check email and password and try again.');
+    } catch (error) {
+      console.error('Error during login:', error);
+      setError('Login failed. Please try again.');
     }
-  } catch (error) {
-    console.error('Error during login:', error);
-    setError('Login failed. Please try again.');
-  }
-};
+  };
 
 
   const handleReset = () => {

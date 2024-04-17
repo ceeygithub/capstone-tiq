@@ -381,9 +381,9 @@ nextForm();
   };
 
  const handleNext = () => {
-    // Perform any validation or processing if needed before moving to the next form
-    setFormCompleted(); // Mark Form1 as completed
-    nextForm({ form1: formData }); // Move to the next form and pass form data
+   setFormCompleted();
+    nextForm({ form1: formData }); 
+
   };
 
   return (

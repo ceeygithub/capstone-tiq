@@ -10,7 +10,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Overview from "./pages/Overview";
 import Response from "./pages/Response";
 import ContactForm from "./components/ContactForm";
-import Multipage from './pages/Multipage'
+// import Multipage from './pages/Multipage'
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
           <Route path="/overview" element={<Overview />} />
         </Route> */}
         <Route path="/contact" element={<ContactForm />} />
-        <Route path="/multipage" element={<Multipage />} />
+        {/* <Route path="/multipage" element={<Multipage />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
