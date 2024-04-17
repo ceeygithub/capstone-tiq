@@ -52,6 +52,10 @@ position: fixed;
 }
 .logoutBtn{
     margin-top: 23rem;
+    color: red;
+}
+.logoutBtn:hover, .logoutBtn:active{
+    color:white;
 }
 .selected-menu:hover,
 .selected-menu.active {
@@ -124,7 +128,13 @@ position: fixed;
     left: 10%;
 }
 
-
+.custom-background {
+    background-color: #4a4a4a7a;
+    color: #213642;
+}
+.blue-border {
+    border-color: #213642;
+}
 
 @media only screen and (max-width: 767px) {
     .left-menu {

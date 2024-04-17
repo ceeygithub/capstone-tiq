@@ -14,6 +14,7 @@ form {
     display: inline;
     margin: 10px 5px;
     padding: 10px ;
+    border-radius: 5px;
 }
 .textArea{
     display: block;
@@ -77,4 +78,24 @@ width: 100px;
 .timerIcon{
     font-size: 15px;
 
+}
+@media screen and (max-width: 600px) {
+
+    /* Adjust form layout for small screens */
+    form {
+        max-width: 100%;
+        /* Full width on small screens */
+        padding: 0 20px;
+        /* Add padding for better spacing */
+    }
+
+    .question {
+        font-size: 18px;
+        /* Decrease font size for smaller screens */
+    }
+
+    .textArea {
+        height: 80px;
+        /* Reduce height of text area */
+    }
 }

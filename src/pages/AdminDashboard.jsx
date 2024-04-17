@@ -22,7 +22,7 @@ const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
       const auth = useAuth();
-  const { logout, user } = useAuth(); 
+  const { logout,user } = useAuth(); 
   // eslint-disable-next-line no-unused-vars
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState('admin');
@@ -126,7 +126,7 @@ const AdminDashboard = () => {
                     </div>
                     <div className="mt-2 mb-0 text-sm">
                    
-                      <span className="text-nowrap  "  style={{ color: 'white', fontSize: '2rem ' }}>460</span>
+                      <span className="text-nowrap  "  style={{ color: 'white', fontSize: '2rem ' }}>2</span>
                     </div>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ const AdminDashboard = () => {
                     </div>
                     <div className="mt-2 mb-0 text-sm" >
                 
-                      <span className="text-nowrap  "  style={{ color: 'white', fontSize: '2rem ' }}>540</span>
+                      <span className="text-nowrap  "  style={{ color: 'white', fontSize: '2rem ' }}>98</span>
                     </div>
                   </div>
                 </div>
@@ -152,34 +152,80 @@ const AdminDashboard = () => {
             <div className="card shadow border-0 mb-7">
             <div class="card-header" style={{display:'flex',justifyContent:'space-between'}}>
                         <h5 class="mb-0">Fellow Details</h5>
-                    <h4>view all</h4>
+                    <h6>view all</h6>
                     </div>
               <div className="table-responsive">
                 <table className="table table-hover table-nowrap">
-                  <thead className="thead-light">
-                    <tr>
-                      <th scope="col"></th>
+                  <thead className="custom-background">
+                    <tr  >
+                      <th scope="col">  <button type="radio" className="btn btn-sm btn-square text-danger-hover blue-border">
+                  
+                        </button></th>
                         <th scope="col">Fellow Name</th>
                       <th scope="col">Country</th>
                       <th scope="col">Phone number</th>
-                      <th scope="col">Email Addres</th>
+                      <th scope="col">Email Address</th>
                       <th scope="col">Preffered Track</th>
                         <th scope="col">Assessment Status</th>
                             <th scope="col">Analysis</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+
+
+  <tr>
                          <td className="text-end">
          
-                        <button type="radio" className="btn btn-sm btn-square btn-neutral text-danger-hover">
+                        <button type="radio" className="btn btn-sm btn-square blue-border text-danger-hover">
                           <i className="bi bi-trash"></i>
                         </button>
                       </td>
                       <td>
-                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" className="avatar avatar-sm rounded-circle me-2" />
+                        <img alt="..." src="https://images.pexels.com/photos/1820919/pexels-photo-1820919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="avatar avatar-sm rounded-circle me-2" />
                         <div className="text-heading font-semibold" href="#">
-                          Cynthia Ekhomwandolor
+                     Okeke Chiamaka
+                                        </div>
+                      </td>
+                      <td>
+                       Nigeria
+                                    </td>
+                      <td>
+                     
+                        <div className="text-heading font-semibold" href="#">
+                         +2348092333982
+                                        </div>
+                      </td>
+                      <td>
+                     chiamaka.okeke@wowentechsters.org
+                                    </td>
+                      <td>
+                        <span className="badge badge-lg badge-dot">
+                     Product Design
+                                        </span>
+                      </td>
+                       <td>
+                        <div style={{borderRadius:' 10px', border:'1px solid green',textAlign:'center'}}>{user.testCompleted ? 'Completed' : 'Not Completed'}</div>
+                      </td> <td  >
+                      <button className="badge badge-lg badge-dot" onClick={openModal} style={{ padding: '20px' }}>
+  <CiMenuKebab />
+</button>
+
+                      </td>
+                   
+                      
+                    </tr>
+
+                    <tr>
+                         <td className="text-end">
+         
+                        <button type="radio" className="btn btn-sm btn-square blue-border  text-danger-hover">
+                          <i className="bi bi-trash"></i>
+                        </button>
+                      </td>
+                      <td>
+                        <img alt="..." src="https://images.unsplash.com/photo-1573166953836-06864dc70a21?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="avatar avatar-sm rounded-circle me-2" />
+                        <div className="text-heading font-semibold" href="#">
+                       Fausat Abiola
                                         </div>
                       </td>
                       <td>
@@ -192,7 +238,7 @@ const AdminDashboard = () => {
                                         </div>
                       </td>
                       <td>
-                       {user.email}
+                   fausat@womentechsters.org
                                     </td>
                       <td>
                         <span className="badge badge-lg badge-dot">
@@ -210,14 +256,41 @@ const AdminDashboard = () => {
                    
                       
                     </tr>
+                    {/* {users.map(user => (
+            <tr key={user.id}>
+              <td>
+                <img alt="..." src={user.photoURL} className="avatar avatar-sm rounded-circle me-2" />
+                <div className="text-heading font-semibold">{user.name}</div>
+              </td>
+              <td>{user.country}</td>
+              <td>{user.phoneNumber}</td>
+              <td>{user.email}</td>
+              <td>
+                <span className="badge badge-lg badge-dot">{user.preferredTrack}</span>
+              </td>
+              <td>
+                <div style={{ borderRadius: '10px', border: '1px solid green', textAlign: 'center' }}>
+                  {user.testCompleted ? 'Completed' : 'Not Completed'}
+                </div>
+              </td>
+              <td>
+                <button className="badge badge-lg badge-dot" onClick={() => openModal(user.id)} style={{ padding: '20px' }}>
+                  <CiMenuKebab />
+                </button>
+              </td>
+            </tr>
+          ))} */}
                     {/* Add more table rows as needed */}
                   </tbody>
                 </table>
                 
               </div>
               <div className="card-footer border-0 py-5">
-                <span className="text-muted text-sm">Showing 10 items out of 250 results found</span>
+                <span className="text-muted text-sm">Showing 2  items </span>
               </div>
+               {/* <div className="card-footer border-0 py-5">
+        <span className="text-muted text-sm">Showing {users.length} items</span>
+      </div> */}
             </div>
             
         
@@ -246,14 +319,12 @@ const AdminDashboard = () => {
                       <label htmlFor="">Subject</label>
                       {/* <input type="text" className="form-control" />
                        */}
-                    <select  >
-  <option value="">Select an option </option>
-  <option value="option1">Option 1</option>
-  <option value="option2">Option 2</option>
-    <option value="option3">Option 3</option>
-</select>
-
-
+                      <select   className="form-control">
+                      <option value="">Select an option </option>
+                      <option value="option1">Option 1</option>
+                       <option value="option2">Option 2</option>
+                     <option value="option3">Option 3</option>
+                     </select>
                     </div>
                   </div>
                 </div>
@@ -336,8 +407,8 @@ const AdminDashboard = () => {
           <span>User Profile</span>
         </div>
        <div className={`selected-menu ${selectedMenu === 'logout' ? 'active' : ''} logoutBtn`} onClick={handleLogoutClick} >
- <GoSignOut />
-  <span>Logout</span>
+ <GoSignOut  />
+  <span >Logout</span>
   </div>
 
       </div>

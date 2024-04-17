@@ -1,0 +1,48 @@
+.progress-wrapper {
+    max-width: 700px;
+   margin-left:260px ;
+    margin-top:60px ;
+}
+
+/* .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+/* .step-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #4A4A4A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222222;
+    margin-bottom: 10px;
+}
+
+.step-circle.accomplished {
+    background-color: #083A55;
+    color: white;
+}
+
+.step-label {
+    white-space: nowrap;
+} */
+
+@media screen and (max-width: 768px) {
+    .progress-wrapper {
+            max-width: 1000px;
+        margin: 60px auto 0 auto;
+            /* margin-top: 60px; */
+        }
+    .step-circle {
+        width: 25px;
+        height: 25px;
+    }
+
+    .step-label {
+        font-size: 12px;
+    }
+}

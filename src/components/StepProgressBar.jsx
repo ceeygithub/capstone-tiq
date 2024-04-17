@@ -1,10 +1,11 @@
 import React from 'react';
 import 'react-step-progress-bar/styles.css';
 import { ProgressBar, Step } from 'react-step-progress-bar';
+import '../styles/progress.css'
 
 const StepProgressBar = ({ currentStep }) => {
   return (
-    <div style={{ maxWidth: '700px',marginLeft:'260px',marginTop:'60px'}}>
+    <div className='progress-wrapper'>
       <ProgressBar percent={(currentStep - 1) * 50} filledBackground="#FF7845" >
         {/* Step 1 */}
         <Step transition="scale"   left = '5%'
