@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
   // Access the email value from the form field
   const email = e.target.email.value;
 
-  // Compare the email to determine the redirection
+  
   if (email === 'admin@gmail.com') {
     navigate('/adminDashboard');
   } else if (email === 'fausat@womentechsters.org' || email === 'chimaka.okeke@womentechsters.org') {
