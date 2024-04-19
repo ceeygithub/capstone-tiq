@@ -332,7 +332,7 @@ const FormPage = () => {
     <div style={{ margin: 'auto', maxWidth: '1220px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <StepProgressBar currentStep={currentStep} />
       <div style={{ margin: '50px auto 0 auto' }}>
-        <h3 style={{ marginBottom: '60px' }}>Answer/tap on each assessment on this page from <b>strongly agree</b> to <b>strongly disagree</b> on how true it is about you.</h3>
+        {/* <h3 style={{ marginBottom: '60px' }}>Answer/tap on each assessment on this page from <b>strongly agree</b> to <b>strongly disagree</b> on how true it is about you.</h3> */}
         {/* Conditionally render forms based on the current step */}
         {currentStep === 1 && (
           <Form1
