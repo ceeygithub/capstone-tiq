@@ -1,7 +1,7 @@
 
 import React, { useContext, useState, useEffect } from 'react';
 import { auth, db,storage } from '../Firebase'; 
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import {  ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -20,32 +20,75 @@ const [error, setError] = useState("");
 const [role, setRole] = useState('');
   const [user, setUser] = useState();
 
-
 useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        setUser(user);
-        console.log("User logged in:", user);
-        const userRef = doc(db, 'users', user.uid);
-        const userSnapshot = await getDoc(userRef);
-        if (userSnapshot.exists()) {
-          const userData = userSnapshot.data();
-          setRole(userData.role); 
-        } else {
-         
-          console.error("User document does not exist");
-          setError("User document does not exist");
-     
-        }
-      } else {
-        setUser(null);
-        setRole(''); 
-        console.log("User logged out");
-      }
-    });
+  const unsubscribe = auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      // Check if there is a user authenticated
+      const currentUser = auth.currentUser;
 
-    return () => unsubscribe();
-  }, []);
+      // If there is a user authenticated and it's not the same as the current user, sign out the current user
+      if (currentUser && currentUser.uid !== user.uid) {
+        try {
+            await auth.signOut();
+          console.log('Previous user signed out successfully');
+        } catch (error) {
+          console.error('Error signing out previous user:', error);
+          // Handle error if needed
+        }
+      }
+
+      // Proceed with setting the new user and role
+      setUser(user);
+      console.log('User logged in:', user);
+      const userRef = doc(db, 'users', user.uid);
+      const userSnapshot = await getDoc(userRef);
+      if (userSnapshot.exists()) {
+        const userData = userSnapshot.data();
+        setRole(userData.role);
+      } else {
+        console.error('User document does not exist');
+        setError('User document does not exist');
+      }
+    } else {
+      setUser(null);
+      setRole('');
+      console.log('User logged out');
+    }
+  });
+
+  return () => {
+    unsubscribe(); // Unsubscribe from the auth state change listener
+    setUser(null); // Clear user state when component unmounts
+  };
+}, []);
+
+
+ 
+// useEffect(() => {
+//     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+//       if (user) {
+//         setUser(user);
+//         console.log("User logged in:", user);
+//         const userRef = doc(db, 'users', user.uid);
+//         const userSnapshot = await getDoc(userRef);
+//         if (userSnapshot.exists()) {
+//           const userData = userSnapshot.data();
+//           setRole(userData.role); 
+//         } else {
+         
+//           console.error("User document does not exist");
+//           setError("User document does not exist");
+     
+//         }
+//       } else {
+//         setUser(null);
+//         setRole(''); 
+//         console.log("User logged out");
+//       }
+//     });
+
+//     return () => unsubscribe();
+//   }, []);
 
 
 
@@ -76,47 +119,31 @@ useEffect(() => {
 };
 
 const login = async (email, password) => {
-  setError(""); // Clear any previous error messages
-
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    
-    const userRef = doc(db, 'users', userCredential.user.uid);
-    const userSnapshot = await getDoc(userRef);
+    setUser(userCredential.user);
+    console.log("User logged in:", userCredential.user);
 
+    // Fetch user role from Firestore and set it in the state
+    const userRef = doc(db, 'users', userCredential.user.uid); // Use user UID to fetch user document
+    const userSnapshot = await getDoc(userRef);
     if (userSnapshot.exists()) {
       const userData = userSnapshot.data();
-      console.log('User logged in successfully:', userData);
-      return { userCredential, role: userData.role }; // Return user credential and role
+      setRole(userData.role); 
     } else {
       console.error("User document does not exist");
       setError("User document does not exist");
-      return { userCredential, role: null }; // Return user credential with null role
     }
+
+    // Return the user object after successful login
+    return userCredential.user;
   } catch (error) {
     console.error('Error during login:', error);
-    setError(error.message); // Set error message based on the error thrown
+    setError(error.message);
     return null;
   }
 };
-
-
-  const handleTestSubmit = async (userId, result) => {
-    try {
-      const userRef = collection(db, 'users').doc(userId);
-
-      await userRef.collection('tests').add({
-        testName: 'Intelligence Test', // Replace with actual test name
-        testResult: result,
-      });
-      // You can add more logic here if needed
-    } catch (error) {
-      console.error('Error saving test result:', error);
-      throw error;
-    }
-  };
-
-
+  
 const updateUserProfile = async (profileData, image, setUploadProgress) => {
   try {
     if (!image) {
@@ -204,7 +231,7 @@ const isRegularUser = () => {
     isRegularUser,
     isAuthenticated,
 updateUserProfile ,
-  handleTestSubmit,
+
   };
   return (
     <AuthContext.Provider value={value}>

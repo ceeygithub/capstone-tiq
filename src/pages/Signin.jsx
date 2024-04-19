@@ -14,39 +14,38 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const { login, isAuthenticated,isAdmin,isRegularUser } = useAuth();
-  const auth = useAuth();
+  
   const [error, setError] = useState('');
-
 
 const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log('Logging in...');
-      await login(email, password);
-      console.log('User after login:', auth.user);
-      console.log('Is authenticated:', isAuthenticated());
-      console.log('Is admin:', isAdmin());
-      console.log('Is regular user:', isRegularUser());
+        console.log('Logging in...');
+        const user = await login(email, password); // Await the login function
+        console.log('User after login:', user);
+        console.log('Is authenticated:', isAuthenticated());
+        console.log('Is admin:', isAdmin());
+        console.log('Is regular user:', isRegularUser());
 
-      // Clear any previous error message
-      setError('');
+        // Clear any previous error message
+        setError('');
 
-      // Redirect user based on role after successful login
-      if (isAuthenticated()) {
-        if (isAdmin()) {
-          navigate('/adminDashboard');
-        } else if (isRegularUser()) {
-          navigate('/overview');
-        } else {
-          // Handle unexpected roles
-          setError('Unknown user role. Please contact support.');
+        // Redirect user based on role after successful login
+        if (user) {
+            if (isAdmin()) {
+                navigate('/adminDashboard');
+            } else if (isRegularUser()) {
+                navigate('/overview');
+            } else {
+                // Handle unexpected roles
+                setError('Unknown user role. Please contact support.');
+            }
         }
-      }
     } catch (error) {
-      console.error('Error during login:', error);
-      setError('Login failed. Please try again.');
+        console.error('Error during login:', error);
+        setError('Login failed. Please try again.');
     }
-  };
+};
 
 
   const handleReset = () => {
