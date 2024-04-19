@@ -60,7 +60,7 @@ const handleSubmit = async (e) => {
   // Compare the email to determine the redirection
   if (email === 'admin@gmail.com') {
     navigate('/adminDashboard');
-  } else if (email === 'fasuat@womentechsters.org' || email === 'chimaka.okeke@womentechsters.org') {
+  } else if (email === 'fausat@womentechsters.org' || email === 'chimaka.okeke@womentechsters.org') {
     navigate('/overview');
   } else {
     // Handle unexpected email addresses
