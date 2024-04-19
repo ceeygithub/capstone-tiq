@@ -63,33 +63,6 @@ useEffect(() => {
 }, []);
 
 
- 
-// useEffect(() => {
-//     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-//       if (user) {
-//         setUser(user);
-//         console.log("User logged in:", user);
-//         const userRef = doc(db, 'users', user.uid);
-//         const userSnapshot = await getDoc(userRef);
-//         if (userSnapshot.exists()) {
-//           const userData = userSnapshot.data();
-//           setRole(userData.role); 
-//         } else {
-         
-//           console.error("User document does not exist");
-//           setError("User document does not exist");
-     
-//         }
-//       } else {
-//         setUser(null);
-//         setRole(''); 
-//         console.log("User logged out");
-//       }
-//     });
-
-//     return () => unsubscribe();
-//   }, []);
-
 
 
   const signup = async (email, password) => {
@@ -212,12 +185,12 @@ const isAuthenticated = () => {
 };
 
 const isAdmin = () => {
-  return isAuthenticated() && user && user.email === 'admin@gmail.com';
+  return  user && user.email === 'admin@gmail.com';
 };
 
 
 const isRegularUser = () => {
-  return isAuthenticated() && !isAdmin();
+  return !isAdmin();
 };
 
 
