@@ -56,7 +56,7 @@ const handleSubmit = async (e) => {
     try {
         console.log('Logging in...');
         // Check if there is a currently authenticated user
-        if (isAuthenticated()) {
+        if (user.auth.currentUser) {
             // If a user is authenticated, sign them out first
              await auth.signOut();// Assuming you have a logout function in your AuthContext
         }
@@ -72,9 +72,9 @@ const handleSubmit = async (e) => {
 
         // Redirect user based on role after successful login
         if (user) {
-            if (isAdmin()) {
+            if ( user.auth.currentUser.email === 'admin@gmail.com') {
                 navigate('/adminDashboard');
-            } else if (isRegularUser()) {
+            } else if (user.auth.currentUser.email !== 'admin@gmail.com') {
                 navigate('/overview');
             } else {
                 // Handle unexpected roles
