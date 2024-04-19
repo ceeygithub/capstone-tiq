@@ -1,7 +1,7 @@
 
 import React, { useContext, useState, useEffect } from 'react';
 import { auth, db,storage } from '../Firebase'; 
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,updateProfile } from 'firebase/auth';
 import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import {  ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -93,6 +93,7 @@ useEffect(() => {
 
 const login = async (email, password) => {
   try {
+       await signOut(auth);
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     setUser(userCredential.user);
     console.log("User logged in:", userCredential.user);
@@ -181,16 +182,16 @@ const updateUserProfile = async (profileData, image, setUploadProgress) => {
 
 
 const isAuthenticated = () => {
-  return !!user; // Returns true if auth.user is not null, false otherwise
+  return user !== null;// Returns true if auth.user is not null, false otherwise
 };
 
 const isAdmin = () => {
-  return  user && user.email === 'admin@gmail.com';
+ return user  && user.email === 'admin@gmail.com';
 };
 
 
 const isRegularUser = () => {
-  return !isAdmin();
+ return  user && user.email === 'fasuat@womentechsters.org';
 };
 
 
