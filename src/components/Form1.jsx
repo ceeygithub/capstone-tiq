@@ -396,7 +396,7 @@ nextForm();
           >
            <div  className='timer'><TfiTimer className='timerIcon'/> {formatTime(timerDuration - seconds)}</div>
              <fieldset>
-            <label htmlFor='entry.104871724' className='question'>On a scale of 1 to 5, how much do you agree with the statement: "I enjoy meeting new people and socializing at events?  </label>
+            <label htmlFor='entry.104871724' className='question'> On a scale of 1 to 5, how much do you agree with the statement: "I enjoy meeting new people and socializing at events?  </label>
 
          <div className='answerContainer'>
   <div className='answer'>

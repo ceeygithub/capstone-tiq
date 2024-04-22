@@ -90,7 +90,7 @@ const handleSignin = async (e) => {
           <div className="LoginFormInnerContainer">
             <img src={logo} alt="" className='formLogo'/>
             <div className="Signinformheader">
-              <h3 style={{textAlign:'left'}}>Welcome back, Fellow</h3>
+              <h3 style={{textAlign:'left'}}>Welcome , Fellow</h3>
               <h6>Enter your email address and password to access your personalized learning portal.</h6>
             </div>
             <form onSubmit={ handleSignin}>
