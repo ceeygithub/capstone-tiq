@@ -167,7 +167,7 @@ const AdminDashboard = () => {
                       <th scope="col">Email Address</th>
                       <th scope="col">Preffered Track</th>
                         <th scope="col">Assessment Status</th>
-                            <th scope="col">Analysis</th>
+                            <th scope="col"> Scoring Analysis</th>
                     </tr>
                   </thead>
                   <tbody>
