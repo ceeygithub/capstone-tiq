@@ -167,7 +167,8 @@ const AdminDashboard = () => {
                       <th scope="col">Email Address</th>
                       <th scope="col">Preffered Track</th>
                         <th scope="col">Assessment Status</th>
-                            <th scope="col"> Scoring Analysis</th>
+                            <th scope="col"> Scoring and Analysis</th>
+                             <th scope="col">Recommendation</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -212,7 +213,11 @@ const AdminDashboard = () => {
 
                       </td>
                    
-                      
+                        <td>
+                        <span className="badge badge-lg badge-dot">
+                     Product Design
+                                        </span>
+                      </td>
                     </tr>
 
                     <tr>
@@ -254,7 +259,11 @@ const AdminDashboard = () => {
 
                       </td>
                    
-                      
+                        <td>
+                        <span className="badge badge-lg badge-dot">
+                    Frontend Developement
+                                        </span>
+                      </td>
                     </tr>
                     {/* {users.map(user => (
             <tr key={user.id}>
