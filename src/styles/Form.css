@@ -98,4 +98,13 @@ width: 100px;
         height: 80px;
         /* Reduce height of text area */
     }
+        .timer {
+            display: flex;
+            position: absolute;
+            top: -0.1%;
+            left: 75%;
+            z-index: 99;
+            width: 100px;
+    
+        }
 }
